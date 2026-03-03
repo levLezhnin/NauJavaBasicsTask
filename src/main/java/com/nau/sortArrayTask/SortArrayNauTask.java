@@ -1,15 +1,13 @@
-package src.sortArrayTask;
+package com.nau.sortArrayTask;
 
-import src.NauTask;
-import src.util.InputHelper;
+import com.nau.NauTask;
+import com.nau.util.InputHelper;
 
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
-public class SortArrayTask implements NauTask {
-
-    int count = 0;
+public class SortArrayNauTask implements NauTask {
 
     @Override
     public void solve() {
@@ -20,7 +18,6 @@ public class SortArrayTask implements NauTask {
         quickSort(randomNumbersArray, 0, n);
 
         System.out.println("Отсортированный массив: " + randomNumbersArray);
-        System.out.println("Кол-во шагов: " + count);
     }
 
     private void quickSort(List<Double> array, int from, int to) {

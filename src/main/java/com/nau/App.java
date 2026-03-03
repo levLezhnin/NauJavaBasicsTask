@@ -1,33 +1,29 @@
-package src;
+package com.nau;
 
-import src.findMinTask.FindMinTask;
-import src.httpClientTask.HttpClientTask;
-import src.sortArrayTask.SortArrayTask;
-import src.streamApiTask.StreamApiTask;
+import com.nau.findMinTask.FindMinNauTask;
+import com.nau.httpClientTask.HttpClientNauTask;
+import com.nau.sortArrayTask.SortArrayNauTask;
+import com.nau.streamApiTask.StreamApiNauTask;
+import com.nau.taskInterfaceTask.TaskImplementationNauTask;
 
 import java.util.Scanner;
 
 public class App
 {
-    private enum Command {
-        FIND_MIN,
-        SORT_ARRAY,
-        FIND_MEAN_SALARY,
-        HTTP_JSON,
-        EXIT
-    }
     public static void main( String[] args ) {
 
         String message = """
                 %d) Поиск минимума в массиве длины n;
                 %d) Сортировка массива длины n;
                 %d) Поиск средней зарплаты в массиве Employee;
-                %d) HTTP Client и JSON
+                %d) HTTP Client и JSON;
+                %d) Скачивание файла (реализация интерфейса Task);
                 %d) Выход""".formatted(
                         Command.FIND_MIN.ordinal(),
                         Command.SORT_ARRAY.ordinal(),
                         Command.FIND_MEAN_SALARY.ordinal(),
                         Command.HTTP_JSON.ordinal(),
+                        Command.FILE_DOWNLOAD.ordinal(),
                         Command.EXIT.ordinal());
 
         int option;
@@ -50,10 +46,11 @@ public class App
             Command command = Command.values()[option];
 
             nauTask = switch (command) {
-                case FIND_MIN -> new FindMinTask();
-                case SORT_ARRAY -> new SortArrayTask();
-                case FIND_MEAN_SALARY -> new StreamApiTask();
-                case HTTP_JSON -> new HttpClientTask();
+                case FIND_MIN -> new FindMinNauTask();
+                case SORT_ARRAY -> new SortArrayNauTask();
+                case FIND_MEAN_SALARY -> new StreamApiNauTask();
+                case HTTP_JSON -> new HttpClientNauTask();
+                case FILE_DOWNLOAD -> new TaskImplementationNauTask();
                 default -> null;
             };
 

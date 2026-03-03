@@ -1,13 +1,13 @@
-package src.findMinTask;
+package com.nau.findMinTask;
 
-import src.NauTask;
-import src.util.InputHelper;
+import com.nau.NauTask;
+import com.nau.util.InputHelper;
 
 import java.util.Arrays;
 import java.util.OptionalInt;
 import java.util.Random;
 
-public class FindMinTask implements NauTask {
+public class FindMinNauTask implements NauTask {
 
     @Override
     public void solve() {
